@@ -1,0 +1,18 @@
+
+public class DoubleCola {
+
+	
+	public static void main(String[] args) {
+		int given = 1802;
+		int i = 0;
+		long sum = 5;
+		
+		while(sum < given){
+			sum *= 2;
+			sum += 5;
+			i++;
+		}
+		
+		System.out.println((sum - 5) / 2);
+	}
+}

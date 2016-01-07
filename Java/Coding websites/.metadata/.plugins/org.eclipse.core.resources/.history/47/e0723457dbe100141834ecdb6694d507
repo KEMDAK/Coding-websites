@@ -1,0 +1,45 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
+public class GUI extends JFrame {
+	private MainMenu mainMenu;
+	private EnterName entername;
+
+	public MainMenu getMainMenu() {
+		return mainMenu;
+	}
+	public EnterName getEntername() {
+		return entername;
+	}
+	public GUI() {
+		super();
+		setSize(new Dimension(1280, 720));
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		setTitle("YU-GI-OH!! v1.0");
+		setIconImage((new ImageIcon("Icon.png")).getImage());
+		
+		mainMenu = new MainMenu();
+		add(mainMenu);
+		mainMenu.setVisible(true);
+		
+		entername = new EnterName();
+		add(entername);
+		entername.setVisible(false);
+		
+		CardOverview c = new CardOverview();
+		add(c);
+		
+		setVisible(true);	
+	}
+	public static void main(String[] args) {
+		GUI game = new GUI();
+	}
+
+
+}

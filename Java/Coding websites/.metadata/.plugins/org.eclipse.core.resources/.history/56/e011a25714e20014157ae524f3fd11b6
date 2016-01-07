@@ -1,0 +1,16 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+public class SpellSlot extends JLabel {
+
+	public SpellSlot() {
+		super(new ImageIcon("Card slot.jpg"));
+		setPreferredSize(new Dimension(130, 115));
+	}
+
+}

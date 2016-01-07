@@ -1,0 +1,60 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+public class PlayerFieldLeft extends JPanel {
+	private ArrayList<MonsterButton> monsterButtons;
+	private ArrayList<SpellButton> spellButtons;
+	private GraveyardButton graveyardButton;
+	private DeckLabel deckLabel;
+	
+	
+	public GraveyardButton getGraveyardbutton() {
+		return graveyardButton;
+	}
+
+	public DeckLabel getDecklabel() {
+		return deckLabel;
+	}
+
+	public ArrayList<MonsterButton> getMonsterbuttons() {
+		return monsterButtons;
+	}
+
+	public ArrayList<SpellButton> getSpellbuttons() {
+		return spellButtons;
+	}
+
+	public PlayerFieldLeft() {
+		super();
+		setPreferredSize(new Dimension(820, 280));
+		setLayout(new GridLayout(2, 6));
+		
+		monsterButtons = new ArrayList<MonsterButton>();
+		spellButtons = new ArrayList<SpellButton>();
+		graveyardButton = new GraveyardButton();
+		deckLabel = new DeckLabel();
+		
+		add(deckLabel);
+		deckLabel.setIcon(new ImageIcon("Deck slot flipped.jpg"));
+		
+		for (int i = 0; i < 5; i++) {
+			MonsterButton m = new MonsterButton();
+			monsterButtons.add(m);
+			add(m);
+		}
+		
+		add(graveyardButton);
+		
+		for (int i = 0; i < 5; i++) {
+			SpellButton s = new SpellButton();
+			spellButtons.add(s);
+			add(s);
+		}
+	}
+}

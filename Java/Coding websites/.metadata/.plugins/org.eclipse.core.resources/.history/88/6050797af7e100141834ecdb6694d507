@@ -1,0 +1,11 @@
+package eg.edu.guc.yugioh.gui;
+
+import javax.swing.JLabel;
+
+public class GameBoard extends JLabel {
+	
+	public GameBoard() {
+		
+	}
+
+}

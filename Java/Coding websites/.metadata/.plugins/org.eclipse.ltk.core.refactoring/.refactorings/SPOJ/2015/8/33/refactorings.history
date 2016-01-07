@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;i&apos; in &apos;Isitatree_PT07Y.dfs(...)&apos; to &apos;node&apos;&#x0D;&#x0A;- Original project: &apos;SPOJ&apos;&#x0D;&#x0A;- Original element: &apos;Isitatree_PT07Y.dfs(int).i&apos;&#x0D;&#x0A;- Renamed element: &apos;i&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;i&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Isitatree_PT07Y.java[Isitatree_PT07Y~dfs~I@i!1086!1090!1090!1090!I!0!true" name="node" references="true" stamp="1439313303860" version="1.0"/>
+</session>

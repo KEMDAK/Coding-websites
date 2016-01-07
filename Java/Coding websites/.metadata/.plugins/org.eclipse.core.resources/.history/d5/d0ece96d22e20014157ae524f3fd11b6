@@ -1,0 +1,166 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+
+public class Game extends JLabel {
+	private GameBoard gameBoard;
+	private InfoArea infoAreaActive, infoAreaOpponent;
+	private CardOverview cardOverview;
+	private HandArea handAreaActive, handAreaOpponent;
+	private GraveyardButton graveyardButtonActive, graveyardButtonOpponent;
+	private DeckLabel deckLabelActive, deckLabelOpponent;
+	private JButton main1Active, main2Active, battleActive, endTurnActive, main1Opponent, main2Opponent, battleOpponent, endTurnOpponent;
+	private JLabel deckSizeActive, deckSizeOpponent;
+
+	public Game() {
+		super(new ImageIcon("board image.jpg"));
+		setSize(new Dimension(1280, 720));
+		
+		gameBoard = new GameBoard();
+		add(gameBoard);
+		gameBoard.setLocation(500, 95);
+		
+		infoAreaActive = new InfoArea();
+		add(infoAreaActive);
+		
+		infoAreaOpponent = new InfoArea();
+		add(infoAreaOpponent);
+		
+		cardOverview = new CardOverview();
+		add(cardOverview);
+		
+		handAreaActive = new HandArea();
+		add(handAreaActive);
+		
+		handAreaOpponent = new HandArea();
+		add(handAreaOpponent);
+		
+		graveyardButtonActive = new GraveyardButton();
+		add(graveyardButtonActive);
+		
+		graveyardButtonOpponent = new GraveyardButton();
+		add(graveyardButtonOpponent);
+		
+		deckLabelActive = new DeckLabel();
+		add(deckLabelActive);
+		
+		deckLabelOpponent  = new DeckLabel();
+		add(deckLabelOpponent);
+		
+		main1Active = new JButton();
+		add(main1Active);
+		
+		main2Active = new JButton();
+		add(main2Active);
+		
+		battleActive = new JButton();
+		add(battleActive);
+		
+		endTurnActive = new JButton();
+		add(endTurnActive);
+		
+		main1Opponent = new JButton();
+		add(main1Opponent);
+		
+		main2Opponent = new JButton();
+		add(main2Opponent);
+		
+		battleOpponent = new JButton();
+		add(battleOpponent);
+		
+		endTurnOpponent = new JButton();
+		add(endTurnOpponent);
+		
+		deckSizeActive = new DeckLabel();
+		add(deckSizeActive);
+		
+		deckSizeOpponent = new DeckLabel();
+		add(deckSizeOpponent);
+	
+	}
+
+	public GameBoard getGameBoard() {
+		return gameBoard;
+	}
+
+	public InfoArea getInfoAreaActive() {
+		return infoAreaActive;
+	}
+
+	public InfoArea getInfoAreaOpponent() {
+		return infoAreaOpponent;
+	}
+
+	public CardOverview getCardOverview() {
+		return cardOverview;
+	}
+
+	public HandArea getHandAreaActive() {
+		return handAreaActive;
+	}
+
+	public HandArea getHandAreaOpponent() {
+		return handAreaOpponent;
+	}
+
+	public GraveyardButton getGraveyardButtonActive() {
+		return graveyardButtonActive;
+	}
+
+	public GraveyardButton getGraveyardButtonOpponent() {
+		return graveyardButtonOpponent;
+	}
+
+	public DeckLabel getDeckLabelActive() {
+		return deckLabelActive;
+	}
+
+	public DeckLabel getDeckLabelOpponent() {
+		return deckLabelOpponent;
+	}
+
+	public JButton getMain1Active() {
+		return main1Active;
+	}
+
+	public JButton getMain2Active() {
+		return main2Active;
+	}
+
+	public JButton getBattleActive() {
+		return battleActive;
+	}
+
+	public JButton getEndTurnActive() {
+		return endTurnActive;
+	}
+
+	public JButton getMain1Opponent() {
+		return main1Opponent;
+	}
+
+	public JButton getMain2Opponent() {
+		return main2Opponent;
+	}
+
+	public JButton getBattleOpponent() {
+		return battleOpponent;
+	}
+
+	public JButton getEndTurnOpponent() {
+		return endTurnOpponent;
+	}
+
+	public JLabel getDeckSizeActive() {
+		return deckSizeActive;
+	}
+
+	public JLabel getDeckSizeOpponent() {
+		return deckSizeOpponent;
+	}
+
+}

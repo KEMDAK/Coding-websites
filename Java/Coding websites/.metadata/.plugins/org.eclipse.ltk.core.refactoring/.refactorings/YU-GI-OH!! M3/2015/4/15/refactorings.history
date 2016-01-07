@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;YU-GI-OH!!/Database-Spells.csv&apos; to &apos;Database-Spell.csv&apos;" description="Rename resource &apos;Database-Spells.csv&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Database-Spells.csv" name="Database-Spell.csv" stamp="1428398051313" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;YU-GI-OH!!/Database-Spell.csv&apos; to &apos;Database-Spells.csv&apos;" description="Rename resource &apos;Database-Spell.csv&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="Database-Spell.csv" name="Database-Spells.csv" stamp="1428398110918" updateReferences="true"/>
+</session>

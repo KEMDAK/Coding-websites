@@ -1,0 +1,13 @@
+1433547494278	Rename field 'name'
+1433550291082	Delete element
+1433552291986	Rename local variable 'nameLabel'
+1433552309571	Rename local variable 'firstNameLabel'
+1433552517072	Rename field 'studentName'
+1433552746893	Rename local variable 'tutorialLabel'
+1433619399564	Rename field 'DElevel'
+1433619407604	Rename method 'getDElevel'
+1433619420113	Rename field 'english'
+1433619431973	Rename method 'getEnglish'
+1433621212304	Rename method 'changeColor'
+1433621218730	Rename method 'resetColor'
+1433621999961	Rename resource 'App project.pl'

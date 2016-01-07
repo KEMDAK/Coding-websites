@@ -1,0 +1,84 @@
+package eg.edu.guc.supermarket.controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
+import eg.edu.guc.supermarket.exceptions.CannotBuyException;
+import eg.edu.guc.supermarket.gui.CustomerButton;
+import eg.edu.guc.supermarket.gui.GUI;
+import eg.edu.guc.supermarket.gui.GroceryProductButton;
+import eg.edu.guc.supermarket.people.Customer;
+import eg.edu.guc.supermarket.people.Supermarket;
+import eg.edu.guc.supermarket.products.GroceryProduct;
+
+public class Controller implements ActionListener {
+	Supermarket supermarket;
+	GUI gui;
+	JButton firstClick;
+	JButton secondClick;
+
+	public Controller(Supermarket supermarket, GUI gui) {
+		this.supermarket = supermarket;
+		this.gui = gui;
+		addActionListenersToButtons();
+		fillCustomers();
+	}
+
+	public void addActionListenersToButtons() {
+		ArrayList<CustomerButton> customerButtons = this.gui
+				.getPanelCustomers().getCustomerButtons();
+		for (CustomerButton customerButton : customerButtons) {
+			customerButton.addActionListener(this);
+			// Add ActionListener to customerButton
+		}
+
+		ArrayList<GroceryProductButton> groceryProductButtons = this.gui
+				.getPanelCustomers().getGroceryProductButtons();
+		for (GroceryProductButton groceryProductButton : groceryProductButtons) {
+			// Add ActionListener to groceryProductButton
+		}
+	}
+
+	public void fillCustomers() {
+		ArrayList<Customer> customers = supermarket.getCustomers();
+		ArrayList<CustomerButton> customerButtons = this.gui
+				.getPanelCustomers().getCustomerButtons();
+		for (int i = 0; i < customers.size(); i++) {
+			customerButtons.get(i).setText(customers.get(i).getName());
+			// Fill the text of the customerButtons based on the customer's info
+			// in the supermarket
+		}
+
+		ArrayList<GroceryProduct> products = supermarket.getGroceryProducts();
+		ArrayList<GroceryProductButton> groceryProductButtons = this.gui
+				.getPanelCustomers().getGroceryProductButtons();
+		for (int i = 0; i < products.size(); i++) {
+			groceryProductButtons.get(i).setText(products.get(i).getName());
+			// Fill the text of the groceryProductButtons based on the product's
+			// info in the supermarket
+		}
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		System.out.println("Hi");
+//		if (firstClick == null) {
+//			if (e.getSource() instanceof CustomerButton)
+//				firstClick = (CustomerButton) e.getSource();
+//		} else if (e.getSource() instanceof GroceryProductButton) {
+//			secondClick = (GroceryProductButton) e.getSource();
+//
+//			Customer customer = null;
+//			GroceryProduct product = null;
+//
+//			// Perform the buying action based on the chosen customer and
+//			// product and check for exceptions
+//
+//		}
+	}
+
+}

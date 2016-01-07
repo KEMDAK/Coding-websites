@@ -1,0 +1,34 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.util.ArrayList;
+import javax.swing.JLabel;
+
+public class PlayerField extends JLabel {
+	private ArrayList<MonsterButton> monsterbuttons;
+	private ArrayList<SpellButton> spellbuttons;
+	private GraveyardButton graveyardbutton;
+	private DeckLabel decklabel;
+	
+	
+	public GraveyardButton getGraveyardbutton() {
+		return graveyardbutton;
+	}
+
+	public DeckLabel getDecklabel() {
+		return decklabel;
+	}
+
+	public ArrayList<MonsterButton> getMonsterbuttons() {
+		return monsterbuttons;
+	}
+
+	public ArrayList<SpellButton> getSpellbuttons() {
+		return spellbuttons;
+	}
+
+	public PlayerField() {
+		super();
+		
+	}
+
+}

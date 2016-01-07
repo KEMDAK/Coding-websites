@@ -1,0 +1,42 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class Game extends JLabel {
+	private GameBoard gameBoard;
+	private InfoArea infoAreaActive, infoAreaOpponent;
+	public GameBoard getGameBoard() {
+		return gameBoard;
+	}
+
+
+	public InfoArea getInfoAreaActive() {
+		return infoAreaActive;
+	}
+
+
+	public InfoArea getInfoAreaOpponent() {
+		return infoAreaOpponent;
+	}
+
+
+	public CardOverview getCardOverview() {
+		return cardOverview;
+	}
+
+
+	private CardOverview cardOverview;
+	
+	
+	public Game() {
+		super(new ImageIcon("board image.jpg"));
+		setSize(new Dimension(1280, 720));
+		
+		gameBoard = new GameBoard();
+		add(gameBoard);
+		
+	}
+
+}

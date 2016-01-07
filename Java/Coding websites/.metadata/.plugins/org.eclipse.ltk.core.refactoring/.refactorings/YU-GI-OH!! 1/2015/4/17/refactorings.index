@@ -1,0 +1,10 @@
+1429720904489	Rename field 'sacraficeMode'
+1429720911035	Rename field 'sacrafices'
+1429720915915	Rename field 'sacraficeMonsters'
+1429729725874	Rename field 'summonedMonster'
+1429810668561	Delete element
+1429823530327	Rename field 'f'
+1429914725182	Encapsulate field 'ATKgain'
+1429914742236	Encapsulate field 'DEFgain'
+1429917706759	Rename local variable 'ATKgain'
+1429959720707	Copy method

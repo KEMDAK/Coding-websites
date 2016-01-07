@@ -1,0 +1,54 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class EightQueensChessProblem_750 {
+
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		int t = Integer.parseInt(in.readLine());
+		
+		in.readLine();
+		
+		while(t-- > 0){
+			StringTokenizer s= new StringTokenizer(in.readLine());
+			
+			int x = Integer.parseInt(s.nextToken());
+			int y = Integer.parseInt(s.nextToken());
+			
+			out.println("SOLN       COLUMN\n #      1 2 3 4 5 6 7 8\n");
+			int c = 1;
+			for (int i = 1; i <= 8; i++) {
+				if((i == x && y != 1)) continue;
+				for (int j = 1; j <= 8; j++) {
+					if((j == x && y != 2) || j == i) continue;
+					for (int j2 = 1; j2 <= 8; j2++) {
+						if((j2 == x && y != 3) || j2 == i || j2 == j) continue;
+						for (int k = 1; k <= 8; k++) {
+							if((k == x && y != 4) || k == i || k == j || k == j2) continue;
+							for (int k2 = 1; k2 <= 8; k2++) {
+								if((k2 == x && y != 5) || k2 == i || k2 == j || k2 == j2 || k2 == k) continue;
+								for (int l = 1; l <= 8; l++) {
+									if((l == x && y != 6) || l == i || l == j || l == j2 || l == k || l == k2) continue;
+									for (int l2 = 1; l2 <= 8; l2++) {
+										if((l2 == x && y != 7) || l2 == i || l2 == j || l2 == j2 || l2 == k || l2 == k2 || l2 == l) continue;
+										for (int m = 1; m <= 8; m++) {
+											if((m == x && y != 8) || m == i || m == j || m == j2 || m == k || m == k2 || m == l || m == l2) continue;
+											
+											out.printf(" %d      %d %d %d %d %d %d %d %d\n", c++, i, j, j2, k, k2, l, l2, m);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

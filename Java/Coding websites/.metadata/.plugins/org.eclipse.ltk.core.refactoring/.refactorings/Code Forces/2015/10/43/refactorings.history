@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;nDomain&apos; in &apos;EmailAliases.main(...)&apos; to &apos;nLogin&apos;&#x0D;&#x0A;- Original project: &apos;Code Forces&apos;&#x0D;&#x0A;- Original element: &apos;EmailAliases.main(String[]).nDomain&apos;&#x0D;&#x0A;- Renamed element: &apos;nDomain&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;nDomain&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{EmailAliases.java[EmailAliases~main~\[QString;@nDomain!1004!1047!1018!1024!QStringBuilder;!0!false" name="nLogin" references="true" stamp="1445507006338" version="1.0"/>
+</session>

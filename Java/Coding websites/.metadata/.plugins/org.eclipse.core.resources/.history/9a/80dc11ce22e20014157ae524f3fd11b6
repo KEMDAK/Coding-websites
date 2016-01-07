@@ -1,0 +1,41 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import javax.swing.JLabel;
+
+public class InfoArea extends JLabel {
+	private JLabel playername, playerLifePoints;
+
+	public JLabel getPlayername() {
+		return playername;
+	}
+
+	public JLabel getPlayerlifepoints() {
+		return playerLifePoints;
+	}
+
+	public InfoArea() {
+		super();
+		setLayout(new GridBagLayout());
+		setSize(new Dimension(320, 130));
+		setFont(new Font(null, 700, 60));
+
+		GridBagConstraints c = new GridBagConstraints();
+
+		c.gridx = 0;
+		c.gridy = 0;
+		playername = new JLabel();
+		add(playername, c);
+
+		c.gridx = 0;
+		c.gridy = 1;
+		playerLifePoints = new JLabel();
+		add(playerLifePoints, c);
+
+	}
+
+}

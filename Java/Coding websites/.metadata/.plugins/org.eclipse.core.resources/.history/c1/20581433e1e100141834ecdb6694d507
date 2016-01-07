@@ -1,0 +1,16 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+
+import javax.swing.JButton;
+
+public class MonsterButton extends JButton {
+	
+	public MonsterButton() {
+		super();
+//		setFocusable(false);
+		//set icon image
+		setPreferredSize(new Dimension(137, 105));//here
+	}
+
+}

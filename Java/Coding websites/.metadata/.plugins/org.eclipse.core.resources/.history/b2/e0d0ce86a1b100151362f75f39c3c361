@@ -1,0 +1,48 @@
+import java.io.IOException;
+import java.io.BufferedReader;
+import java.util.StringTokenizer;
+import java.io.InputStreamReader;
+import java.util.Arrays;
+import java.math.*;
+
+public class GivenLengthandSumofDigits {
+	
+	public static int sum(BigInteger x){
+		String s=x.toString();
+		int sum=0;
+		for(int i=0;i<s.length();i++){
+			sum+=Character.getNumericValue(s.charAt(i));
+		}
+		return sum;
+	}
+	
+	public static String big(int[] x){
+		String f="";	
+		for(int i=0;i<x.length;i++){
+			f+=x[i];
+		}
+		return f;
+	}
+
+   public static void main (String[] args) throws IOException {
+   		BufferedReader in=new BufferedReader(new InputStreamReader(System.in));
+    	StringTokenizer l=new StringTokenizer(in.readLine());
+    	int m=Integer.parseInt(l.nextToken());
+    	int s=Integer.parseInt(l.nextToken());
+    	int[] ma=new int[(int)Math.pow(10,m)];
+    	int[] mi=new int[(int)Math.pow(10,m-1)];
+    	BigInteger max=new BigInteger(big(ma));
+    	BigInteger min=new BigInteger(big(mi));
+    	max.subtract(new BigInteger("1"));
+    	while(sum(max)!=s&&max.compareTo(min)>=0)
+    		max.subtract(new BigInteger("1"));
+    	while(sum(min)!=s&&min.compareTo(max)<=0)
+    		min.add(new BigInteger("1"));
+    	if (max.compareTo(min)<0)
+    		System.out.println("-1"+" "+"-1");
+    	else
+    		System.out.println(min+" "+max);
+   }
+    
+    
+}

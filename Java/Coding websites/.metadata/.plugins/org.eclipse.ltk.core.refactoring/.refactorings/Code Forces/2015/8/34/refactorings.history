@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;s&apos; in &apos;Order_Book.main(...)&apos; to &apos;st&apos;&#x0D;&#x0A;- Original project: &apos;Code Forces&apos;&#x0D;&#x0A;- Original element: &apos;Order_Book.main(String[]).s&apos;&#x0D;&#x0A;- Renamed element: &apos;s&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;s&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Order_Book.java[Order_Book~main~\[QString;@s!387!441!403!403!QStringTokenizer;!0!false" name="st" references="true" stamp="1440263347972" version="1.0"/>
+</session>

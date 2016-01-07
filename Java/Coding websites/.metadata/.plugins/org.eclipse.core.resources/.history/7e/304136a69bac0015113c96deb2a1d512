@@ -1,0 +1,50 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class VikaAndSquares {
+
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		int n = Integer.parseInt(in.readLine());
+		
+		int[] arr = new int[n];
+		
+		StringTokenizer s = new StringTokenizer(in.readLine());
+		
+		int min = 1000000001;
+		int minI = 0;
+		
+		for (int i = 0; i < arr.length; i++) {
+			int a = Integer.parseInt(s.nextToken());
+			
+			if(a <= min){
+				min = a;
+				minI = i;
+			}
+			
+			arr[i] = a;
+		}
+		
+		long res = (min + 1) * (n - minI - 1);
+		
+		boolean flag = false;
+		
+		for (int i = 0; i < minI + 1; i++) {
+			if(arr[i] == min)
+				flag = true;
+			
+			if(!flag){
+				res += min + 1;
+			}
+			else{
+				res += min;
+			}
+		}
+		
+		System.out.println(res);
+	}
+}

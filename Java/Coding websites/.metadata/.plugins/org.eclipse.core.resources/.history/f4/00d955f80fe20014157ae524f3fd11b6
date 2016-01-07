@@ -1,0 +1,31 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.GridLayout;
+import javax.swing.JPanel;
+
+public class GameBoard extends JPanel {
+	private PlayerFieldOpponent playerFieldOpponent;
+	private PlayerFieldActive playerFieldActive;
+
+	public PlayerFieldOpponent getPlayerFieldOpponent() {
+		return playerFieldOpponent;
+	}
+
+	public PlayerFieldActive getPlayerFieldActive() {
+		return playerFieldActive;
+	}
+
+	public GameBoard() {
+		super();
+		setSize(670, 500);
+		setLayout(new GridLayout(2, 1));
+
+		playerFieldOpponent = new PlayerFieldOpponent();
+		add(playerFieldOpponent);
+
+		playerFieldActive = new PlayerFieldActive();
+		add(playerFieldActive);
+		
+	}
+
+}

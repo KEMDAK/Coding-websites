@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;SubtractTwoNumbers&apos; to &apos;SubtractTwoNumbers_345&apos;&#x0D;&#x0A;- Original project: &apos;A2OJ&apos;&#x0D;&#x0A;- Original element: &apos;SubtractTwoNumbers&apos;&#x0D;&#x0A;- Renamed element: &apos;SubtractTwoNumbers_345&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;SubtractTwoNumbers&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{SubtractTwoNumbers.java[SubtractTwoNumbers" matchStrategy="1" name="SubtractTwoNumbers_345" qualified="false" references="true" similarDeclarations="false" stamp="1440361235429" textual="false" version="1.0"/>
+</session>

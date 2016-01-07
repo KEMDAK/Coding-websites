@@ -1,0 +1,48 @@
+package eg.edu.guc.supermarket.gui;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
+import eg.edu.guc.supermarket.exceptions.CannotBuyException;
+import eg.edu.guc.supermarket.people.Customer;
+import eg.edu.guc.supermarket.people.Supermarket;
+import eg.edu.guc.supermarket.products.GroceryProduct;
+
+public class GUI extends JFrame{
+	private JLabel labelSuperMarket;
+	private JLabel labelFeedback;
+	private CustomersListPanel panelCustomers;
+	public GUI(){
+		super();
+		setSize(1000,400);
+		this.setLayout(new BorderLayout());
+		this.setVisible(true);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		//----------------------
+		labelSuperMarket = new JLabel("Supermarket Transaction");
+		labelFeedback = new JLabel("Feedback");
+		panelCustomers = new CustomersListPanel();
+		this.add(labelSuperMarket, BorderLayout.WEST);
+		this.add(labelFeedback, BorderLayout.EAST);
+		this.add(panelCustomers, BorderLayout.CENTER);
+		//---------------------------
+		this.validate();
+	}
+	public JLabel getLabelSuperMarket() {
+		return labelSuperMarket;
+	}
+	public JLabel getLabelFeedback() {
+		return labelFeedback;
+	}
+	public CustomersListPanel getPanelCustomers() {
+		return panelCustomers;
+	}
+
+}

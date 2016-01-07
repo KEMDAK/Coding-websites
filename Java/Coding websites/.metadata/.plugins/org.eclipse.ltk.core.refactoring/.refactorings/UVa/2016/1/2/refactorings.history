@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;i&apos; in &apos;Division_725.main(...)&apos; to &apos;d&apos;&#x0D;&#x0A;- Original project: &apos;UVa&apos;&#x0D;&#x0A;- Original element: &apos;Division_725.main(String[]).i&apos;&#x0D;&#x0A;- Renamed element: &apos;i&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;i&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;{Division_725.java[Division_725~main~\[QString;@i!441!449!445!445!I!0!false" name="d" references="true" stamp="1452085171348" version="1.0"/>
+</session>

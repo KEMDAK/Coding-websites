@@ -1,0 +1,44 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class SimpleEquations_11565 {
+
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		int n = Integer.parseInt(in.readLine());
+		
+		while(n-- > 0){
+			StringTokenizer s = new StringTokenizer(in.readLine());
+			
+			int A = Integer.parseInt(s.nextToken());
+			int B = Integer.parseInt(s.nextToken());
+			int C = Integer.parseInt(s.nextToken());
+			
+			int x = -100, y = -100, z = -100;
+			boolean valid = false;
+			for (x = -100; x <= 100 && !valid; x++) {
+				for (y = -100; y <= 100 && !valid; y++) {
+					for (z = -100; z <= 100 && !valid; z++) {
+						if(x + y + z == A && x * y * z == B && (x * x) + (y * y) + (z * z) == C){
+							valid = true;
+						}
+					}
+				}
+			}
+			
+			if(valid)
+				out.println(x + " " + y + " " + z);
+			else
+				out.println("No solution.");
+		}
+		
+		out.flush();
+		out.close();
+	}
+}

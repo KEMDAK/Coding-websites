@@ -1,0 +1,42 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
+import javax.swing.JPanel;
+
+public class PlayerFieldOpponent extends JPanel {
+	private ArrayList<MonsterButton> monsterSlots;
+	private ArrayList<SpellSlot> spellSlots;
+
+	public ArrayList<MonsterButton> getMonsterSlots() {
+		return monsterSlots;
+	}
+
+	public ArrayList<SpellSlot> getSpellSlots() {
+		return spellSlots;
+	}
+
+	public PlayerFieldOpponent() {
+		super();
+		setPreferredSize(new Dimension(820, 280));
+		setLayout(new GridLayout(2, 5));
+		
+		monsterSlots = new ArrayList<MonsterButton>(5);
+		spellSlots = new ArrayList<SpellSlot>(5);
+		
+		for (int i = 0; i < 5; i++) {
+			MonsterButton m = new MonsterButton();
+			monsterSlots.add(m);
+			add(m);
+		}
+		
+		for (int i = 0; i < 5; i++) {
+			SpellSlot s = new SpellSlot();
+			spellSlots.add(s);
+			add(s);
+		}
+	}
+}

@@ -1,0 +1,46 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
+public class LevkoAndPermutation {
+
+
+	static boolean[] arr;
+
+	public static void sieve(int limit){
+
+		for (int i = 2; i * i <= limit; i++) {
+			if(!arr[i]){
+				for (int j = i; i * j <= limit; j++) {
+					arr[i * j] = true;
+				}
+			}
+		}
+	}
+
+	public static void main(String[] args) {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+
+		arr = new boolean[100001];
+
+		sieve(100000);
+		
+		int c = 0;
+		
+		ArrayList<Integer> primes = new ArrayList<>();
+		
+		for (int i = 1; i < arr.length; i++) {
+			if(!arr[i]){
+				primes.add(i);
+				c++;
+			}
+		}
+		
+		out.println("count : " + c);
+		
+		out.flush();
+		out.close();
+	}
+}

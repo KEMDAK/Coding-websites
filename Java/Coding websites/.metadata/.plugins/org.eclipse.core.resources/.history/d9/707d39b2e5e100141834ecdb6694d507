@@ -1,0 +1,66 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class PlayerField extends JFrame {
+	private ArrayList<MonsterButton> monsterButtons;
+	private ArrayList<SpellButton> spellButtons;
+	private GraveyardButton graveyardButton;
+	private DeckLabel deckLabel;
+	
+	
+	public GraveyardButton getGraveyardbutton() {
+		return graveyardButton;
+	}
+
+	public DeckLabel getDecklabel() {
+		return deckLabel;
+	}
+
+	public ArrayList<MonsterButton> getMonsterbuttons() {
+		return monsterButtons;
+	}
+
+	public ArrayList<SpellButton> getSpellbuttons() {
+		return spellButtons;
+	}
+
+	public PlayerField() {
+		super();
+		setSize(new Dimension(910, 290));
+		setLayout(new GridLayout(2, 6));
+		
+		monsterButtons = new ArrayList<MonsterButton>();
+		spellButtons = new ArrayList<SpellButton>();
+		graveyardButton = new GraveyardButton();
+		deckLabel = new DeckLabel();
+		
+		for (int i = 0; i < 5; i++) {
+			MonsterButton m = new MonsterButton();
+			monsterButtons.add(m);
+			add(m);
+		}
+		
+		add(graveyardButton);
+		
+		for (int i = 0; i < 5; i++) {
+			SpellButton s = new SpellButton();
+			spellButtons.add(s);
+			add(s);
+		}
+		
+		add(deckLabel);
+		
+		setVisible(true);
+	}
+
+	
+	public static void main(String[] args) {
+		PlayerField f = new PlayerField();
+	}
+}

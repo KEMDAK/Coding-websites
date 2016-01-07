@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;s&apos; in &apos;PlayingWithBalls&apos; to &apos;space&apos;&#x0D;&#x0A;- Original project: &apos;SPOJ&apos;&#x0D;&#x0A;- Original element: &apos;PlayingWithBalls.s&apos;&#x0D;&#x0A;- Renamed element: &apos;PlayingWithBalls.space&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;s&apos;" flags="589830" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;{PlayingWithBalls.java[PlayingWithBalls^s" name="space" references="true" setter="false" stamp="1431298913318" textual="false" version="1.0"/>
+</session>

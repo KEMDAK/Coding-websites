@@ -1,0 +1,11 @@
+package eg.edu.guc.yugioh.gui;
+
+import javax.swing.JLabel;
+
+public class DeckLabel extends JLabel {
+
+	public DeckLabel() {
+		super();
+	}
+
+}

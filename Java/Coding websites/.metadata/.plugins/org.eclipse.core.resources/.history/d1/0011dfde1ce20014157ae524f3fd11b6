@@ -1,0 +1,16 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+
+public class GraveyardButton extends JButton {
+
+	public GraveyardButton() {
+		super();
+		setIcon(new ImageIcon("Graveyard slot.jpg"));
+		setSize(new Dimension(130, 115));
+	}
+
+}

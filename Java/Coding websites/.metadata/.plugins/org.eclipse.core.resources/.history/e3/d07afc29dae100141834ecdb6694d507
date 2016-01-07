@@ -1,0 +1,20 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+public class Game extends JLabel {
+	private GameBoard gameboard;
+	private InfoArea infoarea1, infoarea2;
+	private CardArea cardoverview;
+	
+	
+	public Game() {
+		super(new ImageIcon("board image.jpg"));
+		setSize(new Dimension(1280, 720));
+		
+		
+	}
+
+}

@@ -1,0 +1,51 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import eg.edu.guc.yugioh.cards.Mode;
+import eg.edu.guc.yugioh.cards.MonsterCard;
+
+public class MonsterSlot extends JLabel {
+	private JPanel monsterPanel;
+	
+	public JPanel getMonsterPanel() {
+		return monsterPanel;
+	}
+
+	public MonsterSlot() {
+		super(new ImageIcon("Card slot.jpg"));
+		setPreferredSize(new Dimension(130, 115));
+		setLayout(new GridBagLayout());
+	}
+
+	public void addMonster(MonsterCard c){
+		monsterPanel = new JPanel();
+		JButton m = new JButton();
+		if (c.getMode() == Mode.ATTACK){
+			setPreferredSize(new Dimension(80, 113));
+			String path = "Cards/Monsters/"+ c.getName() + ".jpg";
+			m.setIcon(new ImageIcon(path));
+		}else {
+			System.out.println("here");
+			setPreferredSize(new Dimension(100, 60));
+			m.setIcon(new ImageIcon("Hidden monster field.jpg"));
+		}
+		monsterPanel.setLayout(new BorderLayout());
+		add(monsterPanel);
+		monsterPanel.add(m);
+	}
+	
+	public void removeMonster(){
+		remove(monsterPanel);
+	}
+	
+
+}

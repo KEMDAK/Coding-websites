@@ -1,0 +1,66 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+
+public class MagicNumbers_471 {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+		int t = Integer.parseInt(in.readLine());
+//		
+//		long[] numbers = new long[9864100];
+//		
+//		for (int i = 0; i < (1<<10) - 1; i++) {
+//			ArrayList<Character> arr = maskToLong(i);
+//			
+//		}
+
+		while(t-- > 0){
+			in.readLine();
+			long n = Long.parseLong(in.readLine());
+
+			for (long s2 = 1 ; s2 * n <= (9876543210L) ; s2++){
+				long s1 = s2 * n;
+				if(isDiff(s1) && isDiff(s2)){
+					System.out.print(s1 + " / " + s2 + " = " + n);
+				}
+			}
+			if(t > 1)
+				System.out.println();
+		}
+	}
+	
+//	private static char[] maskToLong(int mask){
+////		String num = "";
+//		char[] nums= new char[10];
+//		int count = 0;
+//		for (int i = 0; i < 10; i++) {
+//			if ((mask & (1 << i)) != 0){
+//				String tmp = "" + i;
+//				nums[count] = tmp.charAt(0);
+//				count++;
+//			}
+//		}
+//		return nums;
+//	}
+
+	private static boolean isDiff(long n) {
+		int mask = 0;
+		if (n<0)
+			n *= -1;
+		while (n != 0){
+
+			if((mask & (1 << (n%10))) != 0){
+				return false;
+			}else{
+				mask = (mask | (1 << (n%10)));
+			}
+			n = n / 10;
+		}
+		return true;
+	}
+
+}

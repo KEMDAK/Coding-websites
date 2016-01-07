@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Codeforces" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Codeforces" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Codeforces" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+		</Compiler>
+		<Unit filename="../UVA/src/11172 - Relational Operator.cpp" />
+		<Unit filename="../UVA/src/11498 - Division of Nlogonia.cpp" />
+		<Unit filename="../UVA/src/11727 - Cost Cutting.cpp" />
+		<Unit filename="../UVA/src/Fractions Again! - 10976.cpp" />
+		<Unit filename="../UVA/src/Quirksome Squares - 256.cpp" />
+		<Unit filename="../UVA/src/The 3n + 1 problem - 100.cpp" />
+		<Unit filename="src/A and B and Chess.cpp" />
+		<Unit filename="src/Amr and Pins.cpp" />
+		<Unit filename="src/Bear and Poker.cpp" />
+		<Unit filename="src/Beautiful Year.cpp" />
+		<Unit filename="src/Books.cpp" />
+		<Unit filename="src/Boredom.cpp" />
+		<Unit filename="src/Buttons.cpp" />
+		<Unit filename="src/Chat Online.cpp" />
+		<Unit filename="src/Cifera.cpp" />
+		<Unit filename="src/Cinema Line.cpp" />
+		<Unit filename="src/Colorful Stones (Simplified Edition).cpp" />
+		<Unit filename="src/Combination Lock.cpp" />
+		<Unit filename="src/Combination.cpp" />
+		<Unit filename="src/Contest.cpp" />
+		<Unit filename="src/Cut Ribbon.cpp" />
+		<Unit filename="src/Domino.cpp" />
+		<Unit filename="src/Dragons.cpp" />
+		<Unit filename="src/Drazil and Date.cpp" />
+		<Unit filename="src/Duff in Love.cpp" />
+		<Unit filename="src/Epic Game.cpp" />
+		<Unit filename="src/Fedor and New Game.cpp" />
+		<Unit filename="src/Find Marble.cpp" />
+		<Unit filename="src/Football Kit.cpp" />
+		<Unit filename="src/Game.cpp" />
+		<Unit filename="src/George and Accommodation.cpp" />
+		<Unit filename="src/Gravity Flip.cpp" />
+		<Unit filename="src/I_love_Kareem.cpp" />
+		<Unit filename="src/Jeff and Periods.cpp" />
+		<Unit filename="src/Jzzhu and Sequences.cpp" />
+		<Unit filename="src/Kefa and First Steps.cpp" />
+		<Unit filename="src/Keyboard.cpp" />
+		<Unit filename="src/Knight in a War Grid.cpp" />
+		<Unit filename="src/Kolya and Tanya.cpp" />
+		<Unit filename="src/Laptops.cpp" />
+		<Unit filename="src/Lineland Mail.cpp" />
+		<Unit filename="src/Little Elephant and Magic Square.cpp" />
+		<Unit filename="src/Little Girl and Game.cpp" />
+		<Unit filename="src/Little Pony and Sort by Shift.cpp" />
+		<Unit filename="src/Lucky Substring.cpp" />
+		<Unit filename="src/Lunch Rush.cpp" />
+		<Unit filename="src/Magnets.cpp" />
+		<Unit filename="src/Marks.cpp" />
+		<Unit filename="src/Multiplication Table.cpp" />
+		<Unit filename="src/Nearly Lucky Number.cpp" />
+		<Unit filename="src/New Year Candles.cpp" />
+		<Unit filename="src/New Year Transportation.cpp" />
+		<Unit filename="src/Perfect Permutation.cpp" />
+		<Unit filename="src/Petya and Staircases.cpp" />
+		<Unit filename="src/Playing with Dice.cpp" />
+		<Unit filename="src/Police Recruits.cpp" />
+		<Unit filename="src/Queue at the School.cpp" />
+		<Unit filename="src/Rebranding.cpp" />
+		<Unit filename="src/Rewards.cpp" />
+		<Unit filename="src/Roadside Trees (Simplified Edition).cpp" />
+		<Unit filename="src/Roma and Lucky Numbers.cpp" />
+		<Unit filename="src/Sale.cpp" />
+		<Unit filename="src/Soft Drinking.cpp" />
+		<Unit filename="src/Sort the Array.cpp" />
+		<Unit filename="src/Suffix Structures.cpp" />
+		<Unit filename="src/Supercentral Point.cpp" />
+		<Unit filename="src/TL.cpp" />
+		<Unit filename="src/The Fibonacci Segment.cpp" />
+		<Unit filename="src/The Monster and the Squirrel.cpp" />
+		<Unit filename="src/Trace.cpp" />
+		<Unit filename="src/Two strings.cpp" />
+		<Unit filename="src/Unary.cpp" />
+		<Unit filename="src/Vanya and Cubes.cpp" />
+		<Unit filename="src/Vanya and Lanterns.cpp" />
+		<Unit filename="src/Vasya and Socks.cpp" />
+		<Unit filename="src/Vasya the Hipster.cpp" />
+		<Unit filename="src/Wizards&apos; Duel.cpp" />
+		<Unit filename="src/Word.cpp" />
+		<Unit filename="src/Xenia and Ringroad.cpp" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

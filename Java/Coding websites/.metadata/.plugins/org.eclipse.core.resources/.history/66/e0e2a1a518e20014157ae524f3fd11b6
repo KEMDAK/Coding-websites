@@ -1,0 +1,53 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+
+import eg.edu.guc.yugioh.cards.MonsterCard;
+
+public class GUI extends JFrame {
+	private MainMenu mainMenu;
+	private EnterName enterName;
+	private Game game;
+
+	public Game getGame() {
+		return game;
+	}
+	public MainMenu getMainMenu() {
+		return mainMenu;
+	}
+	public EnterName getEntername() {
+		return enterName;
+	}
+	public GUI() {
+		super();
+		setSize(new Dimension(1280, 720));
+		setLocationRelativeTo(null);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setResizable(false);
+		setTitle("YU-GI-OH!! v1.0");
+		setIconImage((new ImageIcon("Icon.png")).getImage());
+		
+		mainMenu = new MainMenu();
+		add(mainMenu);
+		mainMenu.setVisible(false);
+		
+		enterName = new EnterName();
+		add(enterName);
+		enterName.setVisible(false);
+		
+		game = new Game();
+		add(game);
+		game.setVisible(true);
+		game.getGameBoard().getPlayerFieldActive().getMonsterSlots().get(0).addMonster(new MonsterCard("asdd", "", 3, 100, 100));
+		
+		setVisible(true);	
+	}
+	public static void main(String[] args) {
+		GUI game = new GUI();
+	}
+
+
+}

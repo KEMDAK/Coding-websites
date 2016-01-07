@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1443541502 source:d:\onedrive\documents\k.m.a\programming\c - c++\workspaces\spoj\prime1 - prime generator.cpp
+	<stdio.h>
+	<cmath>
+
+1443543988 source:d:\onedrive\documents\k.m.a\programming\c - c++\workspaces\codeforces\src\chat online.cpp
+	<iostream>
+	<algorithm>
+	<stdio.h>
+

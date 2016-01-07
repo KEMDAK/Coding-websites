@@ -1,0 +1,40 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class GameBoard extends JFrame {
+	PlayerFieldLeft playerFieldLeft;
+	PlayerFieldRight playerFieldRight;
+	
+	public GameBoard() {
+		super();
+		setSize(950, 500);
+		setLayout(new GridBagLayout());
+
+		GridBagConstraints c = new GridBagConstraints();
+		c.gridwidth = 1;
+		c.gridheight = 1;
+		
+		c.gridx = 0;
+		c.gridy = 0;
+		playerFieldLeft = new PlayerFieldLeft();
+		add(playerFieldLeft, c);
+
+		c.gridx = 1;
+		c.gridy = 0;
+		playerFieldRight = new PlayerFieldRight();
+		add(playerFieldRight, c);
+		
+		setVisible(true);
+	}
+
+	public static void main(String[] args) {
+		GameBoard g = new GameBoard();
+	}
+}

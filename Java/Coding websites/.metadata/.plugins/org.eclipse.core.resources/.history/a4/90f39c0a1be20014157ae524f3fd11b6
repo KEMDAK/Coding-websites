@@ -1,0 +1,32 @@
+package eg.edu.guc.yugioh.gui;
+
+import java.awt.Dimension;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+import eg.edu.guc.yugioh.cards.Card;
+
+public class HandArea extends JPanel {
+	private ArrayList<HandCard> handCards;
+	
+	public ArrayList<HandCard> getHandcards() {
+		return handCards;
+	}
+
+	public HandArea() {
+		super();
+		setLayout(new GridLayout());
+		setPreferredSize(new Dimension(686, 140));
+		handCards = new ArrayList<HandCard>();
+	}
+	
+	public void addCard(Card c){
+		handCards.add(new HandCard(c));
+	}
+
+
+}
