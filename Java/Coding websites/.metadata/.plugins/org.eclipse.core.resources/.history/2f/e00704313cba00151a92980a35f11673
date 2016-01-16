@@ -1,0 +1,30 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class AlternatingCurrent {
+
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		String s = in.readLine();
+		
+		if(s.length() % 2 == 1){
+			System.out.println("No");
+			return;
+		}
+		
+		System.out.println(isPalindrome(s) ? "Yes" : "No");
+	}
+
+	public static boolean isPalindrome(String s) {
+		int length = s.length();
+		for (int i = 0; i < length / 2; i++) {
+			if(s.charAt(i) != s.charAt(length - i - 1))
+				return false;
+		}
+		
+		return true;
+	}
+}

@@ -1,0 +1,58 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class BrokenKeyboard_11988 {
+
+	
+	public static void main(String[] args) throws IOException{
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		long ct = System.currentTimeMillis();
+		while(System.currentTimeMillis() - ct < 3200)
+		
+		while(in.ready()){
+			String text = in.readLine();
+			
+			boolean home = true;
+			StringBuilder s = new StringBuilder("");
+			
+			StringBuilder cur = new StringBuilder("");
+			for (int i = 0; i < text.length(); i++) {
+				if(text.charAt(i) == '['){
+					if(home)
+						s.insert(0, cur);
+					else
+						s.append(cur);
+					
+					cur = new StringBuilder("");
+					home = true;
+				}
+				else if(text.charAt(i) == ']'){
+					if(home)
+						s.insert(0, cur);
+					else
+						s.append(cur);
+					
+					cur = new StringBuilder("");
+					home = false;
+				}
+				else{
+					cur.append(text.charAt(i));
+				}
+			}
+			
+			if(home)
+				s.insert(0, cur);
+			else
+				s.append(cur);
+			
+			out.println(s);
+		}
+		
+		out.flush();
+		out.close();
+	}
+}

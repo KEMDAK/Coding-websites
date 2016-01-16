@@ -1,0 +1,48 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class ThePriceIsCorrect {
+
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new FileReader("the_price_is_correct_out.txt"));
+		PrintWriter out = new PrintWriter(new File("the_price_is_correct_out.txt"));
+		
+		int T = Integer.parseInt(in.readLine());
+		
+		for (int t = 1; t <= T; t++) {
+			StringTokenizer s = new StringTokenizer(in.readLine());
+			
+			int N = Integer.parseInt(s.nextToken());
+			int P = Integer.parseInt(s.nextToken());
+			
+			long[] boxes = new long[N];
+			
+			s = new StringTokenizer(in.readLine());
+			boxes[0] = Long.parseLong(s.nextToken());
+			for (int i = 1; i < N; i++)
+				boxes[i] = boxes[i - 1] + Long.parseLong(s.nextToken());
+			
+			long total = (N * (N + 1)) / 2;
+			long wrong = 0;
+			
+			for (int i = 0; i < N; i++) {
+				for (int j = N - 1; j >= i; j--) {
+					if(boxes[j] - (i == 0 ? 0 : boxes[i - 1]) <= P)
+							break;
+					
+					wrong++;
+				}
+			}
+			
+			out.printf("Case #%d: %d\n", t, total - wrong);
+		}
+		
+		out.flush();
+		out.close();
+	}
+}

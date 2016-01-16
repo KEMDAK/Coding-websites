@@ -1,0 +1,33 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class StationBalance_410 {
+
+	static int[] specimen;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		while(in.ready()){
+			StringTokenizer st = new StringTokenizer(in.readLine());
+			
+			int c = Integer.parseInt(st.nextToken());
+			int s = Integer.parseInt(st.nextToken());
+			
+			st = new StringTokenizer(in.readLine());
+			
+			for (int i = 0; i < s; i++) {
+				specimen[i] = Integer.parseInt(st.nextToken());
+			}
+			
+			ArrayList<Integer>[] chambers = new ArrayList[c];
+			
+			
+		}
+	}
+}

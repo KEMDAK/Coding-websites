@@ -1,0 +1,33 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.TreeSet;
+
+public class HanoiTowerTroublesAgain_10276 {
+
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		int t = Integer.parseInt(in.readLine());
+		
+		while(t-- > 0){
+			int n = Integer.parseInt(in.readLine());
+			
+			int[] base = new int[n];
+			base[0] = 1;
+			
+			long res = 0;
+			
+			int limit = (int) Math.pow(2, n);
+			TreeSet<Integer> set = new TreeSet<>();
+			for (int i = 0; i < n; i++) {
+				int prev = base[i];
+				
+				while
+			}
+		}
+	}
+}

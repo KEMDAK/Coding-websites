@@ -1,0 +1,78 @@
+import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+import java.util.TreeMap;
+
+public class BoomerangConstellations {
+	
+	static int[] combinations;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new FileReader("boomerang_constellations.txt"));
+		PrintWriter out = new PrintWriter(new File("boomerang_constellations_out.txt"));
+		
+		combinations = new int[3000];
+		compute();
+		
+		System.out.println(Arrays.toString(combinations));
+		
+		int T = Integer.parseInt(in.readLine());
+		
+		for (int i = 1; i <= T; i++) {
+			int N = Integer.parseInt(in.readLine());
+			
+			Point[] stars = new Point[N];
+			
+			for (int j = 0; j < N; j++) {
+				StringTokenizer s = new StringTokenizer(in.readLine());
+				
+				int x = Integer.parseInt(s.nextToken());
+				int y = Integer.parseInt(s.nextToken());
+				
+				stars[j] = new Point(x, y);
+			}
+			
+			long res = 0;
+			
+			for (int j = 0; j < N; j++) {
+				TreeMap<Double, Integer> length = new TreeMap<>();
+				for (int k = 0; k < N; k++) {
+					if(k == j) continue;
+					
+					double dist = Point.distance(stars[j].x, stars[j].y, stars[k].x, stars[k].y);
+
+					if(length.containsKey(dist)){
+						int val = length.get(dist);
+						length.replace(dist, val + 1);
+					}
+					else{
+						length.put(dist, 1);
+					}	
+				}
+				
+				for (int x : length.values()) {
+					res += combinations[x];
+				}
+			}
+			
+			out.printf("Case #%d: %d\n", i, res);
+		}
+		
+		out.flush();
+		out.close();
+	}
+
+	private static void compute() {
+		combinations[0] = 0;
+		combinations[1] = 0;
+		combinations[2] = 1;
+		
+		for (int i = 3; i < combinations.length; i++)
+			combinations[i] = (combinations[i - 1] * i) / (i - 2);
+	}
+}

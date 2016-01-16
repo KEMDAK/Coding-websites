@@ -6,18 +6,18 @@ import java.io.PrintWriter;
 public class QuirksomeSquares_256 {
 
 	static int d;
+	static int mod;
 	
-	public static String isQuirksomeSquare(int x){
-		String s = print(x);
+	public static boolean isQuirksomeSquare(int x){
 		
-		int left = Integer.parseInt(s.substring(0, s.length() / 2));
-		int right = Integer.parseInt(s.substring(s.length() / 2));
+		int left = (int) (x / mod);//Integer.parseInt(s.substring(0, s.length() / 2));
+		int right = (int) (x % mod);//Integer.parseInt(s.substring(s.length() / 2));
 		
 		if((left + right) * (left + right) == x){
-			return s;
+			return true;
 		}
 		else
-			return null;
+			return false;
 	}
 	
 	public static String print(int x){
@@ -39,29 +39,27 @@ public class QuirksomeSquares_256 {
 		while(in.ready()){
 			d = Integer.parseInt(in.readLine());
 			
+			mod = (int) Math.pow(10, d / 2);
+			
 			if(d >= 2)
 				for (int i = 0; i < 100; i++) {
-					String s = isQuirksomeSquare(i);
-					if(s != null)
-						out.println(s);
+					if(isQuirksomeSquare(i))
+						out.println(print(i));
 				}
 			if(d >= 4)
 				for (int i = 100; i < 10000; i++) {
-					String s = isQuirksomeSquare(i);
-					if(s != null)
-						out.println(s);
+					if(isQuirksomeSquare(i))
+						out.println(print(i));
 				}
 			if(d >= 6)
-				for (int i = 10000; i < 10000000; i++) {
-					String s = isQuirksomeSquare(i);
-					if(s != null)
-						out.println(s);
+				for (int i = 10000; i < 1000000; i++) {
+					if(isQuirksomeSquare(i))
+						out.println(print(i));
 				}
 			if(d >= 8)
-				for (int i = 10000000; i < 1000000000; i++) {
-					String s = isQuirksomeSquare(i);
-					if(s != null)
-						out.println(s);
+				for (int i = 1000000; i < 100000000; i++) {
+					if(isQuirksomeSquare(i))
+						out.println(print(i));
 				}
 		}
 		

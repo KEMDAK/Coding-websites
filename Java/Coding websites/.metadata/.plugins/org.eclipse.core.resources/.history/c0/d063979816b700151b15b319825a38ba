@@ -1,0 +1,131 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class StationBalance_410 {
+
+	static int[] specimen;
+	static double avg;
+	static int c, s;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+//		long curt = System.currentTimeMillis();//////////////////////////////////
+//		while(System.currentTimeMillis() - curt < 3000){///////////////////////////
+//			
+//		}////////////////////////////
+//		System.out.println("done");
+		
+		int set = 1;
+		
+		while(in.ready()){
+			StringTokenizer st = new StringTokenizer(in.readLine());
+			
+			c = Integer.parseInt(st.nextToken());
+			s = Integer.parseInt(st.nextToken());
+			
+			st = new StringTokenizer(in.readLine());
+			
+			specimen = new int[s];
+			
+			int sum = 0;
+			for (int i = 0; i < s; i++) {
+				int cur = Integer.parseInt(st.nextToken()); 
+				specimen[i] = cur;
+				sum += cur;
+			}
+			
+			if(set != 1)
+				out.println();
+			
+			avg = sum / (c * 1.0);
+			
+			int[][] chambers = new int[c][2];
+			
+			int[][] minCost = rec(0, chambers);
+			
+			out.printf("Set #%d\n", set++);
+			
+			for (int i = 0; i < minCost.length; i++) {
+				out.printf(" %d:", i);
+				for (int j = 0; j < minCost[i].length; j++) {
+					if(minCost[i][j] != 0)
+						out.print(" " + minCost[i][j]);
+				}
+				out.print("\n");
+			}
+			
+			out.printf("IMBALANCE = %.5f\n", IMBALANCE(minCost));
+		}
+		
+		out.flush();
+		out.close();
+	}
+
+	public static int[][] rec(int i, int[][] chambers) {
+		if(i == s){
+			return chambers;
+		}
+		
+		int[][] minCost = new int[c][2];
+		double minIM = 200000;
+		
+		for (int j = 0; j < chambers.length; j++) {		
+			int index = -1;
+			
+			if(chambers[j][0] == 0)
+				index = 0;
+			else if(chambers[j][1] == 0)
+				index = 1;
+			
+			if(index >= 0){
+				int[][] chambers1 = new int[c][2];
+				for (int s = 0; s < chambers1.length; s++) {
+					for (int k = 0; k < chambers1[s].length; k++) {
+						chambers1[s][k] = chambers[s][k];
+					}
+				}
+				
+				chambers1[j][index] = specimen[i];
+				int[][] take = rec(i + 1, chambers1);
+				
+				double IM = 0;
+				
+				for (int s = 0; s < take.length; s++) {
+					int sum = 0;
+					for (int k = 0; k < take[s].length; k++) {
+						sum += take[s][k];
+					}
+					
+					IM += Math.abs(avg - sum);
+				}
+				
+				if(IM < minIM){
+					minCost = take;
+					minIM = IM;
+				}
+			}
+		}
+		
+		return minCost;
+	}
+	
+	public static double IMBALANCE(int[][] chambers){
+		double res = 0;
+		
+		for (int i = 0; i < chambers.length; i++) {
+			int sum = 0;
+			for (int j = 0; j < chambers[i].length; j++) {
+				sum += chambers[i][j];
+			}
+			
+			res += Math.abs(avg - sum);
+		}
+		
+		return res;
+	}
+}

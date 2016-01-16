@@ -1,0 +1,62 @@
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+
+public class HighSecurity {
+
+	static char[][] map;
+	static boolean valid;
+	static int N;
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+//		BufferedReader in = new BufferedReader(new FileReader("high_security_example_input.txt"));
+//		PrintWriter out = new PrintWriter(new File("High_Security_out.txt"));
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		int T = Integer.parseInt(in.readLine());
+		
+		for (int t = 1; t <= T; t++) {
+			N = Integer.parseInt(in.readLine());
+			
+			map = new char[2][N];
+			for (int i = 0; i < 2; i++) {
+				String s = in.readLine();
+				for (int j = 0; j < N; j++) {
+					map[i][j] = s.charAt(j);
+				}
+			}
+			
+			int ans = 0;
+			
+			for (int i = 0; i < 2; i++) {
+				for (int j = 0; j < N; j++) {
+					valid = false;
+					
+					if(map[i][j] == '.'){
+						fill(i, j);
+						ans++;
+					}
+				}
+			}
+			
+			out.printf("Case #%d: %d", t, ans);
+		}
+	}
+	
+	public static void fill(int i, int j){
+		for (; j < N; j++) {
+			if(map[(i + 1) % 2][j] == '.' && !valid){
+				map[(i + 1) % 2][j] = '*';
+				valid = true;
+			}
+			
+			if(map[i][j] == 'X') break;
+			
+			map[i][j] = '*';
+		}
+	}
+}

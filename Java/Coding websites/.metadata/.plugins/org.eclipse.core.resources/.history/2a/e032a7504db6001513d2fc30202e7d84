@@ -1,0 +1,47 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class StationBalance_410 {
+
+	static int[] specimen;
+	static double avg;
+	static int c, s;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		while(in.ready()){
+			StringTokenizer st = new StringTokenizer(in.readLine());
+			
+			c = Integer.parseInt(st.nextToken());
+			s = Integer.parseInt(st.nextToken());
+			
+			st = new StringTokenizer(in.readLine());
+			
+			int sum = 0;
+			for (int i = 0; i < s; i++) {
+				int cur = Integer.parseInt(st.nextToken()); 
+				specimen[i] = cur;
+				sum += cur;
+			}
+			
+			avg = sum / (c * 1.0);
+			
+			int[][] chambers = new int[c][2];
+			
+			int[][] minCost = rec(0, chambers);
+		}
+	}
+
+	public static int[][] rec(int i, int[][] chambers) {
+		if(i == c){
+			return chambers;
+		}
+		
+		
+	}
+}
