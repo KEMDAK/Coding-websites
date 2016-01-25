@@ -1,0 +1,70 @@
+import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+public class D {
+
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		StringTokenizer s = new StringTokenizer(in.readLine());
+		Point p1 = new Point(Integer.parseInt(s.nextToken()), Integer.parseInt(s.nextToken()));
+		s = new StringTokenizer(in.readLine());
+		Point p2 = new Point(Integer.parseInt(s.nextToken()), Integer.parseInt(s.nextToken()));
+		s = new StringTokenizer(in.readLine());
+		Point p3 = new Point(Integer.parseInt(s.nextToken()), Integer.parseInt(s.nextToken()));
+		
+		int res = 0;
+		
+		TreeSet<Integer> x = new TreeSet<>();
+		TreeSet<Integer> y = new TreeSet<>();
+		
+		
+		if(p1.x == p2.x){
+			res++;
+			x.add(p1.x);
+		}
+		if(p1.x == p3.x && !x.contains(p1.x)){
+			res++;
+			x.add(p1.x);
+		}
+		if(p2.x == p3.x && !x.contains(p2.x)){
+			res++;
+			x.add(p2.x);
+		}
+		if(p1.y == p2.y){
+			res++;
+			y.add(p1.y);
+		}
+		if(p1.y == p3.y && !y.contains(p1.y)){
+			res++;
+			y.add(p1.y);
+		}
+		if(p2.y == p3.y && !y.contains(p2.y)){
+			res++;
+			y.add(p2.y);
+		}
+		
+		System.out.println(x.size());
+		System.out.println(y.size());
+		if(res == 0){
+			if(p1.x != p2.x && p1.y != p2.y)
+				res += 2;
+			if(p2.x != p3.x && p2.y != p3.y)
+				res += 2;
+			if(p1.x != p3.x && p1.y != p3.y)
+				res += 2;
+		}
+		
+		out.println(res);
+		
+		out.flush();
+		out.close();
+	}
+}

@@ -1,0 +1,68 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class TheSettlersOfCatan {
+
+	static boolean[][] adj;
+	static boolean[] visited;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		while(true){
+			StringTokenizer s = new StringTokenizer(in.readLine());
+			
+			int n = Integer.parseInt(s.nextToken());
+			int m = Integer.parseInt(s.nextToken());
+			
+			if(n == 0 && m == 0)
+				break;
+			
+			adj = new boolean[n][n];
+			visited = new boolean[n];
+			
+			for (int i = 0; i < m; i++) {
+				s = new StringTokenizer(in.readLine());
+				
+				int src = Integer.parseInt(s.nextToken());
+				int dest = Integer.parseInt(s.nextToken());
+				
+				adj[src][dest] = true;
+				adj[dest][src] = true;
+			}
+			
+			int max = -1;
+			for (int i = 0; i < n; i++) {
+				int cur = dfs(i);
+				
+				max = Math.max(max, cur);
+			}
+			
+			out.println(max);
+		}
+		
+		out.flush();
+		out.close();
+	}
+
+	public static int dfs(int i) {
+		visited[i] = true;
+		
+		int max = -1;
+		for (int j = 0; j < adj[i].length; j++) {
+			int cur = 0;
+			if(adj[i][j] && !visited[j])
+				cur = 1 + dfs(j);
+			
+			if(cur > max)
+				max = cur;
+		}
+		
+		visited[i] = false;
+		return max;
+	}
+}

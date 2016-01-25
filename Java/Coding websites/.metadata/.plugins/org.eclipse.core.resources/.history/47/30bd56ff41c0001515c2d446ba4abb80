@@ -1,0 +1,75 @@
+import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+public class TheSettlersOfCatan {
+
+	static boolean[][] adj;
+	static boolean[] visited;
+	static TreeSet<Point> set;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		while(true){
+			StringTokenizer s = new StringTokenizer(in.readLine());
+			
+			int n = Integer.parseInt(s.nextToken());
+			int m = Integer.parseInt(s.nextToken());
+			
+			if(n == 0 && m == 0)
+				break;
+			
+			adj = new boolean[n][n];
+			
+			for (int i = 0; i < m; i++) {
+				s = new StringTokenizer(in.readLine());
+				
+				int src = Integer.parseInt(s.nextToken());
+				int dest = Integer.parseInt(s.nextToken());
+				
+				adj[src][dest] = true;
+				adj[dest][src] = true;
+			}
+			
+			int max = -1;
+			for (int i = 0; i < n; i++) {
+				visited = new boolean[n];
+				set = new TreeSet<>();
+				int cur = dfs(i);
+				max = Math.max(max, cur);
+			}
+			
+			out.println(max);
+		}
+		
+		out.flush();
+		out.close();
+	}
+
+	public static int dfs(int i) {
+		visited[i] = true;
+		
+		int max = 0;
+		for (int j = 0; j < adj[i].length; j++) {
+			int cur = 0;
+			if(adj[i][j] && !set.contains(new Point(i, j))){
+				set.add(new Point(i, j));
+				set.add(new Point(j, i));
+				
+				cur = 1 + dfs(j);
+			}
+			
+			if(cur > max)
+				max = cur;
+		}
+		
+		visited[i] = false;
+		return max;
+	}
+}

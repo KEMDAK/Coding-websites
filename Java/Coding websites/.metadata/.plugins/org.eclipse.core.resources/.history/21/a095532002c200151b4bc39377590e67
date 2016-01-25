@@ -1,0 +1,71 @@
+import java.awt.Point;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+public class D {
+
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+
+		StringTokenizer s = new StringTokenizer(in.readLine());
+		Point p1 = new Point(Integer.parseInt(s.nextToken()), Integer.parseInt(s.nextToken()));
+		s = new StringTokenizer(in.readLine());
+		Point p2 = new Point(Integer.parseInt(s.nextToken()), Integer.parseInt(s.nextToken()));
+		s = new StringTokenizer(in.readLine());
+		Point p3 = new Point(Integer.parseInt(s.nextToken()), Integer.parseInt(s.nextToken()));
+
+		TreeSet<Integer> x = new TreeSet<>();
+		TreeSet<Integer> y = new TreeSet<>();
+
+		boolean bp12 = false;
+		boolean bp23 = false;
+		boolean bp13 = false;
+
+		if(p1.x == p2.x){
+			x.add(p1.x);
+			bp12 =true;
+		}
+		if(p1.x == p3.x){
+			x.add(p1.x);
+			bp13 = true;
+		}
+		if(p2.x == p3.x){
+			x.add(p2.x);
+			bp23 = true;
+		}
+		if(p1.y == p2.y){
+			y.add(p1.y);
+			bp12 = true;
+		}
+		if(p1.y == p3.y){
+			y.add(p1.y);
+			bp13 = true;
+		}
+		if(p2.y == p3.y){
+			y.add(p2.y);
+			bp23 = true;
+		}
+		
+//		System.out.println(x.size());
+//		System.out.println(y.size());
+		
+		int f = 0;
+		if(bp12) f++;
+		if(bp23) f++;
+		if(bp13) f++;
+		
+		
+		
+		System.out.println(bp12 + " " + bp23 + " " + bp13);
+		out.println(x.size() + y.size());
+
+		out.flush();
+		out.close();
+	}
+}

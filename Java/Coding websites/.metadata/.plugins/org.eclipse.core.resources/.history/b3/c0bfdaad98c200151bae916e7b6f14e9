@@ -1,0 +1,49 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+import DemandingDilemma_11550.Edge;
+
+public class DarkRoads_11631 {
+
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		while(true){
+			StringTokenizer s = new StringTokenizer(in.readLine());
+			
+			int n = Integer.parseInt(s.nextToken());
+			int m = Integer.parseInt(s.nextToken());
+			
+			
+		}
+	}
+	
+	static class Edge implements Comparable<Edge>{
+		int src, dest, cost;
+
+		public Edge(int src, int dest, int cost) {
+			this.src = src;
+			this.dest = dest;
+			this.cost = cost;
+		}
+
+		@Override
+		public int compareTo(Edge o) {
+			if(this.cost != o.cost)
+				return this.cost - o.cost;
+			if(this.src != o.src)
+				return this.src - o.src;
+			return this.dest - o.dest;
+		}
+
+		@Override
+		public String toString() {
+			return "(" + this.src + ", " + this.dest + ")";
+		}
+	}
+}

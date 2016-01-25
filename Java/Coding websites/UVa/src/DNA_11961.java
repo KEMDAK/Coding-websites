@@ -28,12 +28,18 @@ public class DNA_11961 {
 			return;
 		}
 		
-		perm(i + 1, remC, c);
+		perm(i + 1, remC, c.clone());
 		int j = Arrays.binarySearch(alpha, c[i]);
-		if(j == 3)
-			j = 0;
+		int temp = j;
+		for (; j >= 0; j--) {
+			if(c[i] == alpha[j]) continue;			
+			char[] cc = c.clone();
+			cc[i] = alpha[j];
+			
+			perm(i + 1, remC - 1, cc);
+		}
 		
-		for (; j < 4; j++) {
+		for (j = temp; j < 4; j++) {
 			if(c[i] == alpha[j]) continue;			
 			char[] cc = c.clone();
 			cc[i] = alpha[j];
@@ -57,14 +63,10 @@ public class DNA_11961 {
 			char[] input = new char[N];
 			
 			String st = in.readLine();
-			int i;
-			for (i = 0; i < K; i++) {
-				input[i] = 'A';
-			}
+			int i = 0;
 			for (; i < N; i++) {
 				input[i] = st.charAt(i);
 			}
-			System.out.println("here" + Arrays.toString(input));
 			
 			results = new ArrayList<>();
 			

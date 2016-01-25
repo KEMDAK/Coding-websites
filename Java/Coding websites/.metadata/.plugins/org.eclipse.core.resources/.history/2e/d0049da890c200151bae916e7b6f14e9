@@ -1,0 +1,56 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class DemandingDilemma_11550 {
+
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		int t = Integer.parseInt(in.readLine());
+		
+		while(t-- > 0){
+			StringTokenizer s = new StringTokenizer(in.readLine());
+			
+			int n = Integer.parseInt(s.nextToken());
+			int m = Integer.parseInt(s.nextToken());
+			
+			int[][] mat = new int[n][m];
+			
+			for (int i = 0; i < n; i++) {
+				s = new StringTokenizer(in.readLine());
+				
+				for (int j = 0; j < m; j++) {
+					mat[i][j] = Integer.parseInt(s.nextToken());
+				}
+			}
+			
+			boolean valid = true;
+			
+			for (int j = 0; j < m; j++) {
+				int c = 0;
+				for (int i = 0; i < n; i++) {
+					if(mat[i][j] == 1)
+						c++;
+				}
+				
+				if(c != 0 && c != 2){
+					valid = false;
+					break;
+				}
+			}
+			
+			if(valid)
+				out.println("YES");
+			else
+				out.println("No");
+		}
+		
+		out.flush();
+		out.close();
+	}
+}
