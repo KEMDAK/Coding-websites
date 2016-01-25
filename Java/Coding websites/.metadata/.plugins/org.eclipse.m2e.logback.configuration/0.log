@@ -115,3 +115,4 @@ java.io.IOException: Server returned HTTP response code: 522 for URL: https://se
 2016-01-24 23:24:40,779 [main] WARN  o.e.r.i.c.r.ChainCompletionProposalComputer - Can't handle %s as source for finding entrypoints.
 2016-01-24 23:47:33,642 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
 2016-01-25 14:56:46,299 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
+2016-01-25 16:12:05,725 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
