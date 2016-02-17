@@ -1,0 +1,65 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+public class Ctoday {
+
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+
+		StringTokenizer s = new StringTokenizer(in.readLine());
+
+		int n = Integer.parseInt(s.nextToken());
+		int m = Integer.parseInt(s.nextToken());
+
+		if(n == 0 && m == 0){
+			System.out.println(0);
+			return;
+		}
+
+		int tempn = n;
+		int tempm = m;
+
+		//		TreeSet<Long> set = new TreeSet<>();
+
+		long prevT = 0;
+		if(tempn != 0){
+			prevT = 2;
+			for (int i = 1; i < tempn; i++) {
+				prevT += 2;
+				if(prevT % 3 == 0){
+					tempn++;
+					//				set.add(prevT);
+				}
+			}
+		}
+
+		long prevTH = 0;
+		if(tempm != 0){
+			prevTH = 3;
+			for (int i = 1; i < tempm; i++) {
+				prevTH += 3;
+				if(prevTH % 2 == 0){
+					tempm++;
+					//				set.add(prevTH);
+				}
+			}
+		}
+
+//		System.out.println(prevT);
+//		System.out.println(prevTH);
+
+		long res = Math.max(prevT - ((tempn - n) * 2), prevTH);
+		res = Math.min(res, Math.max(prevT, prevTH - ((tempm - m) * 3)));
+
+		out.println(res);
+
+		out.flush();
+		out.close();
+	}
+}

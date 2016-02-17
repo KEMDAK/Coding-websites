@@ -1,0 +1,81 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.Arrays;
+import java.util.Stack;
+
+public class Containers_1062 {
+
+
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+
+		int T = 1;
+
+		while(true){
+			String s = in.readLine();
+
+			if(s.equals("end"))
+				break;
+
+			Stack<Character>[] stacks = new Stack[26];
+
+			int res = 0;
+
+			for (int i = s.length() - 1; i >= 0; i--) {
+				int indexChar = s.charAt(i) - 'A';
+
+				if(stacks[indexChar] != null) { 
+					stacks[indexChar].push((char) (indexChar + 'A'));
+					continue;
+				}
+
+				int j;
+
+				for (j = 0; j < 26; j++) {
+					if(stacks[j] == null) continue;
+
+					if(indexChar >= stacks[j].peek().charValue() && j != indexChar){
+						stacks[j].push((char) (indexChar + 'A'));
+						break;
+					}
+
+					if(indexChar >= j && indexChar < stacks[j].peek().charValue()){
+						Stack<Character> temp = new Stack<>();
+						while(indexChar < stacks[j].peek().charValue())
+							temp.push(stacks[j].pop());
+
+						int newC = temp.peek() - 'A';
+
+						if(stacks[newC] == null){ 
+							stacks[newC] = new Stack<>();
+							res++;
+						}
+
+						while(!temp.isEmpty()){
+							stacks[newC].push(temp.pop());
+						}
+
+						break;
+					}
+				}
+
+				if(j == 26){
+					if(stacks[indexChar] == null) 
+						stacks[indexChar] = new Stack<>();
+
+					stacks[indexChar].push((char) (indexChar + 'A'));
+					res++;
+				}
+			}
+
+			out.println(Arrays.toString(stacks));
+			out.printf("Case %d: %d\n", T++, res);
+		}
+
+		out.flush();
+		out.close();
+	}
+}

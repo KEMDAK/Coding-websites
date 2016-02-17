@@ -1,0 +1,55 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+import java.util.TreeSet;
+
+public class Ctoday {
+
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+
+		StringTokenizer s = new StringTokenizer(in.readLine());
+		
+		int n = Integer.parseInt(s.nextToken());
+		int m = Integer.parseInt(s.nextToken());
+		
+		if(n == 0 && m == 0){
+			System.out.println(0);
+			return;
+		}
+		
+		int res = 0;
+		int tempn = n;
+		int tempm = m;
+		
+		TreeSet<Long> set = new TreeSet<>();
+		
+		long prevT = 2;
+		for (int i = 1; i < tempn; i++) {
+			prevT += 2;
+			if(prevT % 3 == 0){
+				tempn++;
+				set.add(prevT);
+			}
+		}
+		
+		long prevTH = 3;
+		for (int i = 1; i < tempm; i++) {
+			prevTH += 3;
+			System.out.println(prevTH);
+			if(prevTH % 2 == 0){
+				tempm++;
+				set.add(prevTH);
+			}
+		}
+		
+		out.println(Math.max(prevT, prevTH));
+		
+		out.flush();
+		out.close();
+	}
+}

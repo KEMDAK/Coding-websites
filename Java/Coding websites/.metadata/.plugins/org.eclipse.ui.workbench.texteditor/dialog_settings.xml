@@ -6,12 +6,13 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="Long.parseLong" key="selection"/>
+		<item value="in" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="true" key="wholeword"/>
 		<list key="findhistory">
+			<item value="in"/>
 			<item value="Integer.parseInt"/>
 			<item value="int"/>
 			<item value="size()"/>
@@ -19,7 +20,6 @@
 			<item value="Cell"/>
 			<item value="cell"/>
 			<item value="out."/>
-			<item value="MoneyMatters_11690"/>
 		</list>
 		<list key="replacehistory">
 			<item value="Long.parseLong"/>
@@ -36,7 +36,7 @@
 		<item value="318" key="DIALOG_WIDTH"/>
 		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
 		<item value="434" key="DIALOG_HEIGHT"/>
-		<item value="650" key="DIALOG_X_ORIGIN"/>
+		<item value="610" key="DIALOG_X_ORIGIN"/>
 		<item value="122" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

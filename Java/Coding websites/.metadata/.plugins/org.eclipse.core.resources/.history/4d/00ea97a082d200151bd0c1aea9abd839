@@ -1,0 +1,50 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class Ctoday {
+
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+
+		StringTokenizer s = new StringTokenizer(in.readLine());
+		
+		int n = Integer.parseInt(s.nextToken());
+		int m = Integer.parseInt(s.nextToken());
+		
+		if(n == 0 && m == 0){
+			System.out.println(0);
+			return;
+		}
+		
+		ArrayList<Long> two = new ArrayList<>();
+		two.add(2L);
+		ArrayList<Long> three = new ArrayList<>();
+		three.add(3L);
+		
+		long prev = 2;
+		for (int i = 1; i < n + m; i++) {
+			long c1 = prev + 2;
+			long c2 = prev + 3;
+			
+			prev = Math.min(c1, c2);
+			two.add(prev);
+		}
+		
+		prev = 3;
+		for (int i = 1; i < n + m; i++) {
+			long c1 = prev + 2;
+			long c2 = prev + 3;
+			
+			prev = Math.min(c1, c2);
+			three.add(prev);
+		}
+		
+		out.println(Math.min(two.get(n + m - 1), three.get(n + m - 1)));
+	}
+}

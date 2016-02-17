@@ -1,0 +1,78 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class InterstarTransport_4524 {
+
+	static int[][] adj;
+	static int[][] parent;
+	static final int INF = (int) 2e9;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		StringTokenizer s = new StringTokenizer(in.readLine());
+		
+		int V = Integer.parseInt(s.nextToken());
+		int E = Integer.parseInt(s.nextToken());
+		
+		adj = new int[V][V];
+		parent = new int[V][V];
+		
+		for (int i = 0; i < E; i++) {
+			s = new StringTokenizer(in.readLine());
+			
+			int src = s.nextToken().charAt(0) - 'A';
+			int dest = s.nextToken().charAt(0) - 'A';
+			int cost = Integer.parseInt(s.nextToken());
+			
+			adj[src][dest] = cost;
+			adj[dest][src] = cost;
+		}
+		
+		for (int i = 0; i < V; i++) {
+			for (int j = 0; j < V; j++) {
+				if(i != j && adj[i][j] == 0)
+					adj[j][j] = INF;
+				parent[i][j] = i;
+			}
+		}
+		
+		for (int k = 0; k < V; k++) {
+			for (int i = 0; i < V; i++) {
+				for (int j = 0; j < V; j++) {
+					if(adj[i][j] > adj[i][k] + adj[k][j]){
+						adj[i][j] = adj[i][k] + adj[k][j];
+						parent[i][j] = parent[k][j];
+					}
+				}
+			}
+		}
+		
+		s = new StringTokenizer(in.readLine());
+		int n = Integer.parseInt(s.nextToken());
+		
+		for (int i = 0; i < n; i++) {
+			s = new StringTokenizer(in.readLine());
+			
+			int src = s.nextToken().charAt(0) - 'A';
+			int dest = s.nextToken().charAt(0) - 'A';
+			
+			StringBuilder sb = new StringBuilder(printPath(src, dest));
+			
+			out.println(sb);
+		}
+		
+		out.flush();
+		out.close();
+	}
+	
+	public static String printPath(int i, int j){
+		if(i == j)
+			return (i + 'A') + "";
+		return printPath(i, parent[i][j]) + " " + (j + 'A');
+	}
+}

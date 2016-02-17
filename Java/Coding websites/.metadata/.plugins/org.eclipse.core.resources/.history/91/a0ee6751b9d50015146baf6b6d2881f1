@@ -1,0 +1,120 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class InterstarTransport_4524 {
+
+	static int[][] adj;
+	static int[][] parent;
+	static final int INF = (int) 2e9;
+
+	public static void main(String[] args) throws IOException {
+		Scanner in = new Scanner(System.in);
+		PrintWriter out = new PrintWriter(System.out);
+
+		int V = in.nextInt();
+		int E = in.nextInt();
+
+		adj = new int[V][V];
+		parent = new int[V][V];
+
+		for (int i = 0; i < E; i++) {
+			int src = in.Next().charAt(0) - 'A';
+			int dest = in.Next().charAt(0) - 'A';
+			int cost = in.nextInt();
+
+			adj[src][dest] = cost;
+			adj[dest][src] = cost;
+		}
+
+		for (int i = 0; i < V; i++) {
+			for (int j = 0; j < V; j++) {
+				if(i != j && adj[i][j] == 0)
+					adj[i][j] = INF;
+				else
+					parent[i][j] = i;
+			}
+		}
+
+		for (int k = 0; k < V; k++) {
+			for (int i = 0; i < V; i++) {
+				for (int j = 0; j < V; j++) {
+					if(adj[i][j] > adj[i][k] + adj[k][j]){
+						adj[i][j] = adj[i][k] + adj[k][j];
+						parent[i][j] = parent[k][j];
+					}
+				}
+			}
+		}
+
+		int n = in.nextInt();
+
+		for (int i = 0; i < n; i++) {
+			int src = in.Next().charAt(0) - 'A';
+			int dest = in.Next().charAt(0) - 'A';
+
+			out.println(printPath(src, dest));
+		}
+
+		out.flush();
+		out.close();
+	}
+
+	public static String printPath(int i, int j){
+		if(parent[i][j] == i)
+			return (char) (i + 'A') + " " + (char) (j + 'A');
+		if(i == j)
+			return (char) (i + 'A') + "";
+		return printPath(i, parent[i][j]) + " " + (char) (j + 'A');
+	}
+
+	private static class Scanner {
+		BufferedReader br;
+		StringTokenizer st;
+
+		public Scanner(FileReader f) {
+			br = new BufferedReader(f);
+		}
+
+		public Scanner(InputStream in) {
+			br = new BufferedReader(new InputStreamReader(in));
+		}
+
+		public String Next() throws IOException {
+			while (st == null || !st.hasMoreTokens())
+				st = new StringTokenizer(br.readLine());
+			return st.nextToken();
+		}
+
+		public String nextLine() throws IOException {
+			return br.readLine();
+		}
+
+		public int nextInt() throws IOException {
+			return Integer.parseInt(Next());
+		}
+
+		public long nextLong() throws IOException {
+			return Long.parseLong(Next());
+		}
+
+		public double nextDouble() throws IOException {
+			return Double.parseDouble(Next());
+		}
+
+		public boolean Ready() throws IOException {
+			return br.ready();
+		}
+
+		public void waitForInput(long time) {
+			long ct = System.currentTimeMillis();
+			while(System.currentTimeMillis() - ct < time) {};
+		}
+
+	}
+
+}

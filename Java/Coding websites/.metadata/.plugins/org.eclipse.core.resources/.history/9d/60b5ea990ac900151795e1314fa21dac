@@ -1,0 +1,153 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
+
+public class RingsAndGlue_10301 {
+
+	static ArrayList<Integer>[] adj;
+	static int CC;
+	static boolean[] visited;
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		Scanner in = new Scanner(System.in);
+		PrintWriter out = new PrintWriter(System.out);
+
+		while(true){
+			int n = in.nextInt();
+
+			if (n == -1)
+				break;
+
+			adj = new ArrayList[n];
+			for (int i = 0; i < n; i++)
+				adj[i] = new ArrayList<>();
+
+			Circle[] circles = new Circle[n];
+			
+			for (int i = 0; i < n; i++) {
+				double x = in.nextDouble();
+				double y = in.nextDouble();
+				double r = in.nextDouble();
+				
+				circles[i] = new Circle(x, y, r);
+			}
+			
+			for (int i = 0; i < n; i++) {
+				for (int j = 0; j < n; j++) {
+					if(i == j) continue;
+					
+					if(circles[i].glued(circles[j])){
+						adj[i].add(j);
+					}
+				}
+			}
+			
+			for (int i = 0; i < n; i++) {
+				System.out.print(i + ": ");
+				for (int j = 0; j < adj[i].size(); j++) {
+					System.out.print(adj[i].get(j) + " ");
+				}
+				System.out.println();
+			}
+			System.out.println();
+			
+			visited = new boolean[n];
+			int max = 1;
+			
+			for (int i = 0; i < n; i++) {
+				if(!visited[i]){
+					CC = 0;
+					dfs(i);
+					max = Math.max(max, CC);
+				}
+			}
+			
+			out.printf("The largest component contains %d rings.\n", max);
+		}
+		
+		out.flush();
+		out.close();
+	}
+
+	public static void dfs(int i) {
+		visited[i] = true;
+		CC++;
+		
+		for (int j = 0; j < adj[i].size(); j++) {
+			int v = adj[i].get(j);
+			if(!visited[v]){
+				dfs(v);
+			}
+		}
+	}
+
+	static class Circle{
+		double x, y, r;
+
+		public Circle(double x, double y, double r){
+			this.x = x;
+			this.y = y;
+			this.r = r;
+		}
+
+		public double distance(Circle c){
+			return ((this.x - c.x) * (this.x - c.x) + (this.y - c.y) * (this.y - c.y));
+		}
+
+		public boolean glued(Circle c){
+			return (this.distance(c) <= (this.r + c.r) * (this.r + c.r) && (this.distance(c) > Math.abs(this.r - c.r)));
+		}
+	}
+
+
+	static class Scanner {
+		BufferedReader br;
+		StringTokenizer st;
+
+		public Scanner(FileReader f) {
+			br = new BufferedReader(f);
+		}
+
+		public Scanner(InputStream in) {
+			br = new BufferedReader(new InputStreamReader(in));
+		}
+
+		public String Next() throws IOException {
+			while (st == null || !st.hasMoreTokens())
+				st = new StringTokenizer(br.readLine());
+			return st.nextToken();
+		}
+
+		public String nextLine() throws IOException {
+			return br.readLine();
+		}
+
+		public int nextInt() throws IOException {
+			return Integer.parseInt(Next());
+		}
+
+		public long nextLong() throws IOException {
+			return Long.parseLong(Next());
+		}
+
+		public double nextDouble() throws IOException {
+			return Double.parseDouble(Next());
+		}
+
+		public boolean Ready() throws IOException {
+			return br.ready();
+		}
+
+		public void waitForInput(long time) {
+			long ct = System.currentTimeMillis();
+			while(System.currentTimeMillis() - ct < time) {};
+		}
+
+	}
+
+}

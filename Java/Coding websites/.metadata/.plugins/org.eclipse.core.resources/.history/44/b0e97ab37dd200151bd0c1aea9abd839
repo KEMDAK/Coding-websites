@@ -1,0 +1,51 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.TreeSet;
+
+public class B {
+
+	static TreeSet<Character> set;
+	static char[] cards;
+	static int nextFree;
+
+	public static void rec(int rem, int index){
+		if(rem == 1){
+			set.add(cards[nextFree]);
+			return;
+		}
+		if(index >= nextFree)
+			return;
+		if(cards)
+		
+	}
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+
+		int n = Integer.parseInt(in.readLine());
+
+		cards = new char[10000000];
+		Arrays.fill(cards, '*');
+		nextFree = 0;
+		set = new TreeSet<>();
+
+		String s = in.readLine();
+		
+		for (int i = 0; i < n; i++) {
+			cards[i] = s.charAt(i);
+			nextFree++;
+		}
+		
+		rec(n, 0);
+		
+		for (Character c : set) {
+			out.print(c);
+		}
+		
+		out.flush();
+		out.close();
+	}
+}

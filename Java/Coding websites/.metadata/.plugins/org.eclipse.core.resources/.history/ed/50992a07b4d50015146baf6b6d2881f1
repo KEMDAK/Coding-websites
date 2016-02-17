@@ -1,0 +1,32 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.StringTokenizer;
+
+public class InterstarTransport_4524 {
+
+	static int[][] adj;
+	static int[][] parent;
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		PrintWriter out = new PrintWriter(System.out);
+		
+		StringTokenizer s = new StringTokenizer(in.readLine());
+		
+		int V = Integer.parseInt(s.nextToken());
+		int E = Integer.parseInt(s.nextToken());
+		
+		for (int i = 0; i < E; i++) {
+			s = new StringTokenizer(in.readLine());
+			
+			int src = s.nextToken().charAt(0) - 'A';
+			int dest = s.nextToken().charAt(0) - 'A';
+			int cost = Integer.parseInt(s.nextToken());
+			
+			adj[src][dest] = cost;
+			adj[dest][src] = cost;
+		}
+	}
+}
