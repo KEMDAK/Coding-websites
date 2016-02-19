@@ -1,0 +1,18 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
+
+public class F {
+	
+	public static void main(String[] args) {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		int n = Integer.parseInt(in.readLine());
+		
+		BigInteger[] fac = new BigInteger[778];
+		fac[0] = 1;
+		for (int i = 1; i < 778; i++) {
+			fac[1] = new BigInteger(fac[i - 1].multiply(i));
+		}
+	}
+}

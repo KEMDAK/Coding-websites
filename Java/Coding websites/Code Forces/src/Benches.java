@@ -1,0 +1,23 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.math.BigInteger;
+
+public class Benches {
+
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		int n = Integer.parseInt(in.readLine());
+		
+		BigInteger[] fac = new BigInteger[n + 2];
+		fac[0] = BigInteger.ONE;
+		for (int i = 1; i < n + 2; i++) {
+			fac[i] = fac[i - 1].multiply(new BigInteger(i + ""));
+		}
+		
+		BigInteger nc5 = fac[n].divide(fac[n - 5].multiply(fac[5]));
+		BigInteger np5 = fac[n].divide(fac[n - 5]);
+		System.out.println(nc5.multiply(np5));
+	}
+}

@@ -1,0 +1,23 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class N {
+
+	
+	public static void main(String[] args) {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer s = new StringTokenizer(in.readLine());
+		
+		double a = Double.parseDouble(s.nextToken());
+		double b = Double.parseDouble(s.nextToken());
+		double c = Double.parseDouble(s.nextToken());
+		
+		
+		double res1 = (-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a);
+		double res2 = (-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a);
+		
+		
+	}
+}

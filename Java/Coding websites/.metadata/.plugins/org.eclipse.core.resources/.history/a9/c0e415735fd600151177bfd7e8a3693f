@@ -1,0 +1,20 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class N {
+
+	public static void main(String[] args) {
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+		
+		StringTokenizer s = new StringTokenizer(in.readLine());
+		
+		int a = Integer.parseInt(s.nextToken());
+		int b = Integer.parseInt(s.nextToken());
+		int c = Integer.parseInt(s.nextToken());
+		
+		
+		sx21.text = (-Val(B.Text) + Math.Sqrt(Val(B.Text) ^ 2 - 4 * Val(A.Text) * Val(C.Text))) / (2 * Val(A.Text));
+		sx22.text = (-Val(B.Text) - Math.Sqrt(Val(B.Text) ^ 2 - 4 * Val(A.Text) * Val(C.Text))) / (2 * Val(A.Text))
+	}
+}
